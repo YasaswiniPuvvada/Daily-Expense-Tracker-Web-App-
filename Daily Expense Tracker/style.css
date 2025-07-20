@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+    background-color: #0d0d0d;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Radium Animated Background */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(
+        45deg,
+        #ff00ff, #00ffff, #ffdd00, #ff00ff
+    );
+    background-size: 400% 400%;
+    animation: radium-glow 15s ease infinite;
+    filter: blur(80px);
+}
+
+@keyframes radium-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- KEY CHANGE: Reduced card size --- */
+.container {
+    max-width: 700px; /* Reduced max-width */
+    width: 100%;
+    margin: 1rem;
+    padding: 2rem; /* Reduced padding */
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem; /* Reduced margin */
+}
+
+header h1 {
+    font-size: 2.2rem; /* Slightly reduced font size */
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.content {
+    margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+.input-section h2, .expenses-section h2 {
+    font-size: 1.6rem; /* Slightly reduced font size */
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #a0a0a0;
+}
+
+.form-control input,
+.form-control select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+    outline: none;
+}
+
+select option {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* --- KEY CHANGE: Bigger and rounder button --- */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem; /* Increased padding */
+    border: none;
+    border-radius: 12px; /* Increased border-radius */
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #fff;
+    font-size: 1.2rem; /* Increased font size */
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 198, 255, 0.3);
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+/* Expenses Section */
+.expenses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.expense-summary {
+    background: rgba(30, 30, 30, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-align: right;
+    border: 1px solid #333;
+}
+
+.expense-summary h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+#total-expenses {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+/* --- KEY CHANGE: Reduced expense list height --- */
+.expense-list {
+    list-style-type: none;
+    max-height: 280px; /* Reduced max-height */
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.expense-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem; /* Reduced gap */
+    padding: 1.2rem; /* Reduced padding */
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-width: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.expense-item:hover {
+    transform: scale(1.02);
+}
+
+.expense-item[data-category="Food"] { background: linear-gradient(180deg, rgba(255, 107, 107, 0.15) 0%, rgba(29, 29, 29, 0) 100%); border-top-color: #ff6b6b; }
+.expense-item[data-category="Transport"] { background: linear-gradient(180deg, rgba(72, 113, 247, 0.15) 0%, rgba(29, 29, 29, 0) 100%); border-top-color: #4871f7; }
+.expense-item[data-category="Shopping"] { background: linear-gradient(180deg, rgba(247, 159, 247, 0.15) 0%, rgba(29, 29, 29, 0) 100%); border-top-color: #f79ff7; }
+.expense-item[data-category="Bills"] { background: linear-gradient(180deg, rgba(255, 212, 59, 0.15) 0%, rgba(29, 29, 29, 0) 100%); border-top-color: #ffd43b; }
+.expense-item[data-category="Entertainment"] { background: linear-gradient(180deg, rgba(173, 137, 216, 0.15) 0%, rgba(29, 29, 29, 0) 100%); border-top-color: #ad89d8; }
+.expense-item[data-category="Other"] { background: linear-gradient(180deg, rgba(140, 150, 161, 0.15) 0%, rgba(29, 29, 29, 0) 100%); border-top-color: #8c96a1; }
+
+.expense-info .description { font-weight: 600; font-size: 1rem; }
+.expense-info .category { font-size: 0.8rem; color: #a0a0a0; }
+.expense-amount { font-size: 1.1rem; font-weight: 700; color: #ffdd00; text-shadow: 0 0 5px rgba(255, 221, 0, 0.5); }
+
+.delete-btn {
+    background: none; border: none; color: #ff3b30; font-size: 1.1rem; cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+.delete-btn:hover { color: #ff00ff; transform: scale(1.2); }
+
+@media (max-width: 768px) {
+    .container { padding: 1.5rem; }
+    header h1 { font-size: 2rem; }
+    .expenses-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}

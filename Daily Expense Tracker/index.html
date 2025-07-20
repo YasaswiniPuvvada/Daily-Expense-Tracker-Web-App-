@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Spending Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header>
+            <h1>Your Daily Spending Companion</h1>
+        </header>
+
+        <main class="content">
+            <section class="input-section">
+                <h2>Add New Expense</h2>
+                <form id="expense-form">
+                    <div class="form-control">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g., Metro card recharge" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="e.g., 500" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Food">🍔 Food</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Shopping">🛍️ Shopping</option>
+                            <option value="Bills">💡 Bills & Utilities</option>
+                            <option value="Entertainment">🎬 Entertainment</option>
+                            <option value="Other">🛒 Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Add Expense</button>
+                </form>
+            </section>
+        </main>
+
+        <hr class="divider">
+
+        <section class="expenses-section">
+            <div class="expenses-header">
+                <h2>Recent Expenses</h2>
+                <div class="expense-summary">
+                    <h3>Total Spent: ₹<span id="total-expenses">0.00</span></h3>
+                </div>
+            </div>
+            <ul id="expense-list" class="expense-list">
+                <!-- Expenses will be dynamically added here -->
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
